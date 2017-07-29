@@ -1,0 +1,64 @@
+{
+	"$schema":"http://json-schema.org/draft-04/schema#",
+
+	"definitions": {
+		"number_range": {
+			"type": "object",
+			"properties": {
+				"min": { "type": "number" },
+				"max": { "type": "number" }
+			}
+		},
+
+		"file": {
+			"type": "object",
+			"properties": {
+				"name": { "type": "string" },
+				"path": { "type": "string" },
+				"file_type": { "type": "string"},
+				"description": { "type": "string" }
+			},
+			"required": ["path", "type"]
+		},
+
+        "text": {
+            "type": "object",
+            "properties": {
+                "text": { "type": "string" },
+                "audio": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {"type": "string"},
+                            "path": {"type": "string"},
+                            "context": {"type": "number"}
+                        }
+                    }
+                }
+            }
+        }
+	},
+
+	"title": "schema_game_missing_number",
+	"description": "JSON Schema for game Which is the missing number?",
+	"type": "object",
+	"properties":{
+		"game_id": { "type": "number" },
+		"question": { "type": "string" },
+		"description" : { "type": "string" },
+		"start_value": { "$ref": "#/definitions/number_range"},
+		"end_value": { "$ref": "#/definitions/number_range"},
+		"step": { "type": "number" },
+		"media_set": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"image": { "$ref": "#/definitions/file" },
+					"audio": { "$ref": "#/definitions/file" }
+				}
+			}
+		}
+	}
+}

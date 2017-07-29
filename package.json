@@ -1,0 +1,16 @@
+{
+  "name": "serverupload",
+  "version": "1.0.0",
+  "description": "upload json file",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dainh",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "multer": "^1.3.0"
+  }
+}
